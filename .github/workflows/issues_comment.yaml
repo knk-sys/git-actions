@@ -11,7 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Dump GitHub context"
-        run: echo "${{ toJSON(github.event) }}" | jq
+        run: |
+          echo '${{ toJSON(github.event) }}' | jq '.'
         shell: bash
 
       - name: Create comment
@@ -23,5 +24,4 @@ jobs:
             - With GitHub **Markdown** :sparkles:
             - Created by [create-or-update-comment][1]
 
-            [1]: https://github.com/peter-evans/create-or-update-comment
-          reactions: '+1'
+            [1]: https://github.com/peter-ev
